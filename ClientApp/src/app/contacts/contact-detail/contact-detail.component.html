@@ -1,0 +1,83 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="Id" [(ngModel)]="service.formData.Id">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Surname.valid" [class.red-icon]="Surname.invalid && Surname.touched"></i>
+        </div>
+      </div>
+      <input name="Surname" #Surname="ngModel" [(ngModel)]="service.formData.Surname" class="form-control"
+             placeholder="Surname" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-user" [class.green-icon]="Firstname.valid" [class.red-icon]="Firstname.invalid && Firstname.touched"></i>
+        </div>
+      </div>
+      <input name="Firstname" #Firstname="ngModel" [(ngModel)]="service.formData.Firstname"
+             class="form-control" placeholder="Firstname" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-address-card" [class.green-icon]="Address.valid" [class.red-icon]="Address.invalid && Address.touched"></i>
+        </div>
+      </div>
+      <input name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control"
+             placeholder="Address" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-phone" [class.green-icon]="Phone.valid" [class.red-icon]="Phone.invalid && Phone.touched"></i>
+        </div>
+      </div>
+      <input type="number" name="Phone" #Phone="ngModel" [(ngModel)]="service.formData.Phone" class="form-control" placeholder="Phone"
+             required maxlength="10">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-city" [class.green-icon]="City.valid" [class.red-icon]="City.invalid && City.touched"></i>
+        </div>
+      </div>
+      <input name="City" #City="ngModel" [(ngModel)]="service.formData.City" class="form-control" placeholder="City"
+             required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-envelope-open-text" [class.green-icon]="PostalCode.valid" [class.red-icon]="PostalCode.invalid && PostalCode.touched"></i>
+        </div>
+      </div>
+      <input type="number" name="PostalCode" #PostalCode="ngModel" [(ngModel)]="service.formData.PostalCode" class="form-control" placeholder="PostalCode"
+             required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-at" [class.green-icon]="Email.valid" [class.red-icon]="Email.invalid && Email.touched"></i>
+        </div>
+      </div>
+      <input name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control" placeholder="Email"
+             required>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+  </div>
+</form>

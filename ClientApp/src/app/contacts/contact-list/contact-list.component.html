@@ -1,0 +1,41 @@
+<div class="well">
+  <div class="form-group">
+    <label id="searchContact" class="form-group">Search</label>
+    <input #searchBar class="form-control" type="search" name="searchBar" [(ngModel)]="searchValue" [value]='searchValue'/>
+  </div>
+  <button (click)="onSearch(searchValue)"><i class="fas fa-search"></i></button>
+  <button (click)="resetFilter()"><i class="fas fa-sync"></i></button>
+
+</div>
+
+
+<table class="table .table-bordered .table-striped">
+  <thead>
+    <tr>
+      <th>Surname</th>
+      <th>Firstname</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>PostalCode</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pd of service.list">
+      <td>{{pd.Surname}}</td>
+      <td>{{pd.Firstname}}</td>
+      <td>{{pd.Address}}</td>
+      <td>{{pd.Phone}}</td>
+      <td>{{pd.City}}</td>
+      <td>{{pd.PostalCode}}</td>
+      <td>{{pd.Email}}</td>
+      <td>
+        <i class="fas fa-user-edit fa-lg text-primary" (click)="populateForm(pd)"></i>
+      </td>
+      <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
